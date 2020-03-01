@@ -7,9 +7,18 @@
 
 ##### hash相关
 
-[LeetCode01]([https://github.com/cpp-wen/JavaStudy/blob/master/LeetCode/LeetCode%2001.md](https://github.com/cpp-wen/JavaStudy/blob/master/LeetCode/LeetCode 01.md))
+[LeetCode01](./LeetCode/LeetCode01.md)
 
 ##### 链表操作
 
-LeetCode2
+[LeetCode2](./LeetCode/LeetCode02.md)
 
+[LeetCode206](./LeetCode/LeetCode206.md)
+
+[LeetCode138](./LeetCode/LeetCode138.md)
+
+
+
+##### 树
+
+[LeetCode112](./LeetCode/LeetCode112.md)
