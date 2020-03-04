@@ -29,11 +29,15 @@
 
 [LeetCode16](./LeetCode/LeetCode16.md)
 
+[LeetCode26](./LeetCode/LeetCode26.md)
+
 
 
 ##### 树
 
 [LeetCode112](./LeetCode/LeetCode112.md)
+
+[LeetCode113](./LeetCode/LeetCode113.md)
 
 [LeetCode257](./LeetCode/LeetCode257.md)
 
