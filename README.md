@@ -1,4 +1,5 @@
-# JavaStudy
+JavaStudy
+
 学习Java的一些笔记，以及日常感受，欢迎Star
 
 
@@ -33,7 +34,8 @@
 
 [LeetCode42](./LeetCode/LeetCode42.md)
 
-[LeetCode57](./LeetCode/LeetCode57.md)
+- [ ]  [LeetCode57](./LeetCode/LeetCode57.md)
+- [ ]  [LeetCode59](./LeetCode/LeetCode59.md)
 
 [LeetCode121](./LeetCode/LeetCode121.md)
 
@@ -48,6 +50,12 @@
 [LeetCode202](./LeetCode/LeetCode202.md)
 
 
+
+
+
+## 数组
+
+[面试题LeetCode04](./LeetCode/LeetCodeX04.md)
 
 ## 树
 
