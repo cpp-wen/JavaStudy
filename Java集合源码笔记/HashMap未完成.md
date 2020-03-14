@@ -199,7 +199,27 @@ if (hiTail != null) {//表示高位链表
 
 Jdk1.7中 HashMap rehash时候使用的头插法，这样导致的结果是会引发死循环，而JDK1.8中修改这个问题使用尾插入来实现。具体的实现可以看下[这篇博客](https://juejin.im/post/5a66a08d5188253dc3321da0) 其实很简单没有很烧脑。面试官问你的话，语言是很难表达清楚的，最好使用画图给他演示一遍就可以了。
 
+进行内容的添加 头插法是在jkd1.7版本下使用，以下是单线程的头插入，具体调用方法是在rehash过程中调用transfer方法。
 
+![](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200313090017.png)
+
+
+
+
+
+![](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200313090306.png)
+
+
+
+![](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200313090736.png)
+
+
+
+![](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200313091312.png)
+
+
+
+![](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200313091335.png)
 
 
 
