@@ -83,6 +83,8 @@ JavaStudy
 
 [LeetCode46](./LeetCode/LeetCode46.md)
 
+[LeetCode47](./LeetCode/LeetCode47.md) 剪枝不是很懂
+
 [LeetCode131](./LeetCode/LeetCode131.md)
 
 
