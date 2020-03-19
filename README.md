@@ -83,6 +83,8 @@ JavaStudy
 
 [LeetCode39](./LeetCode/LeetCode39.md) 第一次直接写出来
 
+[LeetCode40](./LeetCode/LeetCode40.md)
+
 [LeetCode46](./LeetCode/LeetCode46.md)
 
 [LeetCode47](./LeetCode/LeetCode47.md) 剪枝不是很懂
