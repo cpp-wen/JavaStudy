@@ -1,7 +1,5 @@
 
 
-阅读list集合观察它们底层是如何实现的，以及集合面试中提出的问题进行实践。
-
  list集合中常用的类为Arraylist、LinkedLIst。
 
 两者的区别
@@ -572,4 +570,56 @@ lock.unlock();
 ```
 
 批量删除操作是将要未删除的元素放入到一个临时数组中，最后在一次性复制到整个数组中，避免多个创建新的数组造成内存浪费。
+
+
+
+
+
+
+
+
+
+### 问题解答：（全部有所了解在看）
+
+> 关于List相关的问题主要有：
+>
+> （1）ArrayList和LinkedList有什么区别？  fail-fast  cache缓存不友好 ArraayList删除问题
+
+> （2）ArrayList是怎么扩容的？  扩容为原先的1.5倍
+>
+> （3）ArrayList插入、删除、查询元素的时间复杂度各是多少？ 查找O(1) 增删看位置一般为O(n)
+>
+> （4）怎么求两个集合的并集、交集、差集？ addAll()求并集 retainAll求交集  removeAll()单向差集
+>
+> （5）ArrayList是怎么实现序列化和反序列化的？  transient关键字保证不初始化整个数组，通过writeObject和readObject进行size个数元素输入。
+>
+> （6）集合的方法toArray()有什么问题？
+>
+> （7）什么是fail-fast？ 快速失败机制在线程不安全的时候使用
+>
+> （8）LinkedList是单链表还是双链表实现的？ 双链表实现，有head 以及tail两个指针
+>
+> （9）LinkedList除了作为List还有什么用处？ 双向链表还可以作为栈使用
+>
+> （10）LinkedList插入、删除、查询元素的时间复杂度各是多少？ 插入删除O(1)  查找O(n)
+>
+> （11）什么是随机访问？ 实现RandomAccess接口 表明可以O(1)复杂度获取下标元素
+>
+> （12）哪些集合支持随机访问？他们都有哪些共性？ 底层使用数组实现便可以随机访问
+>
+> （13）CopyOnWriteArrayList是怎么保证并发安全的？ 添加ReetLock锁进行限制
+>
+> （14）CopyOnWriteArrayList的实现采用了什么思想？读写分离
+>
+> （15）CopyOnWriteArrayList是不是强一致性的？不是强一致，只能保证最终一致，无法保证实时一致
+>
+> （16）CopyOnWriteArrayList适用于什么样的场景？ 读多写少
+>
+> （17）CopyOnWriteArrayList插入、删除、查询元素的时间复杂度各是多少？ 插入删除O(n)查询O(1)
+>
+> （18）CopyOnWriteArrayList为什么没有size属性？ 因为元素个数始终等于数组长度无需size属性
+>
+> （19）比较古老的集合Vector和Stack有什么缺陷？ 线程安全但是性能较差
+>
+> 
 

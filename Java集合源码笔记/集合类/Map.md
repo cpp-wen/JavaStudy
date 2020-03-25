@@ -1,11 +1,3 @@
-
-
-# Map其实真的有点难
-
-> 你知道的越多，你不知道的越多
->
-> 本文收录 **GitHub** [JavaStudy](https://github.com/cpp-wen/JavaStudy) 欢迎Star和完善，里面放了学习的一些资料，希望我们一起学习冲进大厂。
-
 hashMap源码阅读 笔记记录以及Debug流程记录
 
 hashmap源码大概看了一天半 其中有很多细节，本次抽出面试经常问的一些细节以及谈谈自己的理解 。
@@ -257,7 +249,9 @@ TreeMap底层使用的数据结构是红黑树，不同的是TreeMap 利用了�
 
 ## 数据结构
 
-LinkedHashMap底层是队列，与Linkedlist数据结构相同。
+![LinkedHashMap-structure](https://gitee.com/alan-tang-tt/yuan/raw/master/%E6%AD%BB%E7%A3%95%20java%E9%9B%86%E5%90%88%E7%B3%BB%E5%88%97/resource/LinkedHashMap-structure.png)
+
+LinkedHashMap底层是队列+HashMap，与Linkedlist数据结构相同。
 
 两个常用特性为
 
@@ -329,9 +323,93 @@ void afterNodeInsertion(boolean evict) { // possibly remove eldest
 
    
 
+   # 问题：
    
-   
-   
+   > （1）什么是散列表？
+   >
+   > （2）怎么实现一个散列表？
+   >
+   > （3）java中HashMap实现方式的演进？
+   >
+   > （4）HashMap的容量有什么特点？
+   >
+   > （5）HashMap是怎么进行扩容的？
+   >
+   > （6）HashMap中的元素是否是有序的？
+   >
+   > （7）HashMap何时进行树化？何时进行反树化？
+   >
+   > （8）HashMap是怎么进行缩容的？
+   >
+   > （9）HashMap插入、删除、查询元素的时间复杂度各是多少？
+   >
+   > （10）HashMap中的红黑树实现部分可以用其它数据结构代替吗？
+   >
+   > （11）LinkedHashMap是怎么实现的？
+   >
+   > （12）LinkedHashMap是有序的吗？怎么个有序法？
+   >
+   > （13）LinkedHashMap如何实现LRU缓存淘汰策略？
+   >
+   > （14）WeakHashMap使用的数据结构？ 
+   >
+   > （15）WeakHashMap具有什么特性？
+   >
+   > （16）WeakHashMap通常用来做什么？
+   >
+   > （17）WeakHashMap使用String作为key是需要注意些什么？为什么？
+   >
+   > （18）什么是弱引用？
+   >
+   > （19）红黑树具有哪些特性？
+   >
+   > （20）TreeMap就有序的吗？怎么个有序法？
+   >
+   > （21）TreeMap是否需要扩容？
+   >
+   > （22）什么是左旋？什么是右旋？
+   >
+   > （23）红黑树怎么插入元素？
+   >
+   > （24）红黑树怎么删除元素？
+   >
+   > （25）为什么要进行平衡？
+   >
+   > （26）如何实现红黑树的遍历？
+   >
+   > （27）TreeMap中是怎么遍历的？
+   >
+   > （28）TreeMap插入、删除、查询元素的时间复杂度各是多少？
+   >
+   > （29）HashMap在多线程环境中什么时候会出现问题？
+   >
+   > （30）ConcurrentHashMap的存储结构？
+   >
+   > （31）ConcurrentHashMap是怎么保证并发安全的？
+   >
+   > （32）ConcurrentHashMap是怎么扩容的？
+   >
+   > （33）ConcurrentHashMap的size()方法的实现知多少？
+   >
+   > （34）ConcurrentHashMap是强一致性的吗？
+   >
+   > （35）ConcurrentHashMap不能解决什么问题？
+   >
+   > （36）ConcurrentHashMap中哪些地方运用到分段锁的思想？
+   >
+   > （37）什么是伪共享？怎么避免伪共享？
+   >
+   > （38）什么是跳表？
+   >
+   > （40）ConcurrentSkipList是有序的吗？
+   >
+   > （41）ConcurrentSkipList是如何保证线程安全的？
+   >
+   > （42）ConcurrentSkipList插入、删除、查询元素的时间复杂度各是多少？
+   >
+   > （43）ConcurrentSkipList的索引具有什么特性？
+   >
+   > （44）为什么Redis选择使用跳表而不是红黑树来实现有序集合？
    
    
    
