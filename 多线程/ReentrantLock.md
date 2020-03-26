@@ -106,7 +106,7 @@ public void lock() {
     }
 ```
 
-其实到这边可以发现nofairSync类中用到了cas进行操作，他的参数也符合我们上面提到的内存值V、旧的预期值A、要更新的值B。智育fairSync类中我们可以接着往下看会看到addWaiter中会调用到cas的操作，这边就放一段代码。
+其实到这边可以发现nofairSync类中用到了cas进行操作，他的参数也符合我们上面提到的内存值V、旧的预期值A、要更新的值B。至于fairSync类中我们可以接着往下看会看到addWaiter中会调用到cas的操作，这边就放一段代码。
 
 ```java
  private Node addWaiter(Node mode) {
