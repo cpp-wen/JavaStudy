@@ -20,6 +20,12 @@ JavaStudy
 
 
 
+
+
+## 二分查找
+
+[LeetCode29](./LeetCode/LeetCode每日一题/LeetCode29.md)
+
 ##### 双指针以及滑动窗口
 
 [LeetCode03](./LeetCode/LeetCode每日一题/LeetCode03.md)
@@ -112,4 +118,10 @@ JavaStudy
 [LeetCode130](./LeetCode/LeetCode每日一题/LeetCode130.md)
 
 
+
+## 位运算
+
+[LeetCode50](./LeetCode/LeetCode每日一题/LeetCode50.md) 快速幂思想
+
+[LeetCode260](./LeetCode/LeetCode每日一题/LeetCode260.md)
 
