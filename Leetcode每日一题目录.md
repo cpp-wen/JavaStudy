@@ -38,10 +38,11 @@ JavaStudy
 
 [LeetCode26](./LeetCode/LeetCode每日一题/LeetCode26.md)
 
-[LeetCode42](./LeetCode/LeetCode每日一题/LeetCode42.md)
+[LeetCode42](./LeetCode/LeetCode每日一题/LeetCode42.md) 接雨水经典问题 
 
-- [ ]  [LeetCode57](./LeetCode/LeetCode每日一题/LeetCode57.md)
-- [ ]  [LeetCode59](./LeetCode/LeetCode每日一题/LeetCode59.md)
+[LeetCode57](./LeetCode/LeetCode每日一题/LeetCode57.md)
+
+[LeetCode59](./LeetCode/LeetCode每日一题/LeetCode59.md)
 
 [LeetCode121](./LeetCode/LeetCode每日一题/LeetCode121.md)
 
@@ -57,11 +58,23 @@ JavaStudy
 
 
 
+##  动态规划（dp）
 
+[LeetCode120](./LeetCode/LeetCode每日一题/LeetCode120.md)   三角形最小路径和
+
+[LeetCode279](./LeetCode/LeetCode每日一题/LeetCode279.md)   完全平方数
+
+[LeetCode309](./LeetCode/LeetCode每日一题/LeetCode309.md)   股票买卖 冻结问题
+
+[LeetCode1277](./LeetCode/LeetCode每日一题/LeetCode1277.md)   统计全为1的正方形子矩阵
 
 ## 数组
 
 [面试题LeetCode04](./LeetCode/LeetCode每日一题/LeetCodeX04.md)
+
+[程序员代码指南LeetCode1710](./LeetCode/LeetCode每日一题/LeetCodeX1710.md)   摩尔投票问题进化
+
+
 
 ## 树
 
@@ -80,6 +93,8 @@ JavaStudy
 
 
 #### dp
+
+[LeetCode64](./LeetCode/LeetCode每日一题/LeetCode64.md)   最短路径问题 二维dp 基础题
 
 [LeetCode300](./LeetCode/LeetCode每日一题/LeetCode300.md)
 
