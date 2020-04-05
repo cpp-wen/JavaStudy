@@ -140,3 +140,10 @@ JavaStudy
 
 [LeetCode260](./LeetCode/LeetCode每日一题/LeetCode260.md)
 
+
+
+
+
+## 设计类题目
+
+[LeetCode460](./LeetCode/LeetCode每日一题/LeetCode460.md)  LFU缓存
