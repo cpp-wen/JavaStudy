@@ -10,6 +10,8 @@ JavaStudy
 
 [LeetCode01](./LeetCode/LeetCode每日一题/LeetCode01.md)
 
+
+
 ##### 链表操作
 
 [LeetCode2](./LeetCode/LeetCode每日一题/LeetCode02.md)
@@ -20,11 +22,11 @@ JavaStudy
 
 
 
-
-
 ## 二分查找
 
 [LeetCode29](./LeetCode/LeetCode每日一题/LeetCode29.md)
+
+
 
 ##### 双指针以及滑动窗口
 
@@ -60,13 +62,19 @@ JavaStudy
 
 ##  动态规划（dp）
 
+[LeetCode72](./LeetCode/LeetCode每日一题/LeetCode72.md)   编辑距离
+
 [LeetCode120](./LeetCode/LeetCode每日一题/LeetCode120.md)   三角形最小路径和
+
+[LeetCode213](./LeetCode/LeetCode每日一题/LeetCode213.md) 打家劫舍问题2 
 
 [LeetCode279](./LeetCode/LeetCode每日一题/LeetCode279.md)   完全平方数
 
 [LeetCode309](./LeetCode/LeetCode每日一题/LeetCode309.md)   股票买卖 冻结问题
 
 [LeetCode1277](./LeetCode/LeetCode每日一题/LeetCode1277.md)   统计全为1的正方形子矩阵
+
+
 
 ## 数组
 
@@ -123,6 +131,8 @@ JavaStudy
 [LeetCode401](./LeetCode/LeetCode每日一题/LeetCode401.md) 回溯比二进制算法难度大
 
 #### dfs+bfs
+
+[LeetCodex13](./LeetCode/LeetCode每日一题/LeetCodex13.md)
 
 [LeetCode17](./LeetCode/LeetCode每日一题/LeetCode17.md)
 
