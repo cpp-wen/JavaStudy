@@ -1,9 +1,3 @@
-JavaStudy
-
-学习Java的一些笔记，以及日常感受，欢迎Star
-
-
-
 ### LeetCode算法部分
 
 ##### hash相关
@@ -76,7 +70,15 @@ JavaStudy
 
 [LeetCode1277](./LeetCode/LeetCode每日一题/LeetCode1277.md)   统计全为1的正方形子矩阵
 
+[LeetCode64](./LeetCode/LeetCode每日一题/LeetCode64.md)   最短路径问题 二维dp 基础题
 
+[LeetCode300](./LeetCode/LeetCode每日一题/LeetCode300.md)
+
+[LeetCode377](./LeetCode/LeetCode每日一题/LeetCode377.md) 组合总数 
+
+[LeetCode322](./LeetCode/LeetCode每日一题/LeetCode322.md) 零钱兑换  背包的动态规划（多解）
+
+[LeetCode416](./LeetCode/LeetCode每日一题/LeetCode416.md) 背包问题 变种 
 
 ## 数组
 
@@ -99,14 +101,6 @@ JavaStudy
 [LeetCode257](./LeetCode/LeetCode每日一题/LeetCode257.md)
 
 [LeetCode404](./LeetCode/LeetCode每日一题/LeetCode404.md)
-
-
-
-#### dp
-
-[LeetCode64](./LeetCode/LeetCode每日一题/LeetCode64.md)   最短路径问题 二维dp 基础题
-
-[LeetCode300](./LeetCode/LeetCode每日一题/LeetCode300.md)
 
 
 
