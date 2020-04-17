@@ -60,6 +60,8 @@
 
 [LeetCode120](./LeetCode/LeetCode每日一题/LeetCode120.md)   三角形最小路径和
 
+[LeetCode139](./LeetCode/LeetCode每日一题/LeetCode139.md)   偏背包的思想 
+
 [LeetCode213](./LeetCode/LeetCode每日一题/LeetCode213.md) 打家劫舍问题2 
 
 [LeetCode279](./LeetCode/LeetCode每日一题/LeetCode279.md)   完全平方数
@@ -79,6 +81,12 @@
 [LeetCode322](./LeetCode/LeetCode每日一题/LeetCode322.md) 零钱兑换  背包的动态规划（多解）
 
 [LeetCode416](./LeetCode/LeetCode每日一题/LeetCode416.md) 背包问题 变种 
+
+[LeetCode474](./LeetCode/LeetCode每日一题/LeetCode474.md)  1和0  背包问题 
+
+[LeetCode542](./LeetCode/LeetCode每日一题/LeetCode542.md)  矩阵问题 bfs可解决 dp更简单
+
+
 
 ## 数组
 
@@ -127,6 +135,14 @@
 [LeetCode216](./LeetCode/LeetCode每日一题/LeetCode216.md)
 
 [LeetCode401](./LeetCode/LeetCode每日一题/LeetCode401.md) 回溯比二进制算法难度大
+
+
+
+## 贪心
+
+[LeetCode55](./LeetCode/LeetCode每日一题/LeetCode55.md) 跳跃游戏 贪心入门
+
+
 
 #### dfs+bfs
 
