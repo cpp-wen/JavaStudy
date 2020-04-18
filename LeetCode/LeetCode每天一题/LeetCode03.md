@@ -18,7 +18,7 @@ class Solution {
 }
 ```
 
-```
+```java
 public static int lengthOfLongestSubstring(String s) {
         int []array=new int[256];
         int l=0;
@@ -41,6 +41,43 @@ public static int lengthOfLongestSubstring(String s) {
         }
         return res;
     }
+```
+
+
+
+第二次打卡
+
+```java
+class Solution {
+     public int lengthOfLongestSubstring(String s) {
+         if(s.length()==0){
+             return 0;
+         }
+        //使用左右指针+hashset来保存元素的位置达到一定值的后删除到这个元素后面可以
+        int left = 0;
+        int right = 0;
+
+        //integer 当前元素的下标
+        HashMap<Character, Integer> hashMap = new HashMap<>();
+        int max = 0;
+        while (right < s.length()) {
+            char a = s.charAt(right);
+            if (hashMap.containsKey(a)) {
+                int temp = left;
+                left = hashMap.get(a) + 1;
+                //value前面的都要删除
+                for (int i = temp; i < left; i++) {
+                    char b = s.charAt(i);
+                    hashMap.remove(b);
+                }
+            }
+            hashMap.put(a, right);
+            right++;
+            max = Math.max(right - left, max);
+        }
+        return max;
+    }
+}
 ```
 
 
