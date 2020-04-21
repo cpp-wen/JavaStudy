@@ -44,6 +44,8 @@
 
 [LeetCode209](./LeetCode/LeetCode每日一题/LeetCode209.md)
 
+[LeetCode1248](./LeetCode/LeetCode每日一题/LeetCode1248.md) 滑动窗口问题 
+
 
 
 ## 快慢指针
@@ -55,6 +57,8 @@
 
 
 ##  动态规划（dp）
+
+[LeetCode05](./LeetCode/LeetCode每日一题/LeetCode05.md)   最长回文子串（高频）
 
 [LeetCode72](./LeetCode/LeetCode每日一题/LeetCode72.md)   编辑距离
 
