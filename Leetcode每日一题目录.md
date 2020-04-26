@@ -166,18 +166,20 @@
 
 ##### 位运算
 
-[LeetCode50](./LeetCode/LeetCode每日一题/LeetCode50.md) 快速幂思想
-
-[LeetCode260](./LeetCode/LeetCode每日一题/LeetCode260.md)
-
-
+| 题目                                                         | 难度 | 题解                                                         |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+| [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)        | 中等 | [LeetCode50](./LeetCode/LeetCode每日一题/LeetCode50.md) 快速幂思想 |
+| [只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii/) | 中等 | [LeetCode260](./LeetCode/LeetCode每日一题/LeetCode260.md)    |
+| [两整数之和](https://leetcode-cn.com/problems/sum-of-two-integers/) | 简单 | [LeetCode371](./LeetCode/LeetCode每日一题/LeetCode371.md) 机组知识 |
+| [面试题 08.04. 幂集](https://leetcode-cn.com/problems/power-set-lcci/) | 中等 | [LeetCodeX0804](./LeetCode/LeetCode每日一题/LeetCodeX0804.md) 位运算更加巧妙 |
+| [最大单词长度乘积](https://leetcode-cn.com/problems/maximum-product-of-word-lengths/) | 中等 | [LeetCode318](./LeetCode/LeetCode每日一题/LeetCode318.md) hash+位运算 |
 
 ##### 图
 
 | 题目                                                         | 难度 | 题解                                                        |
 | ------------------------------------------------------------ | ---- | ----------------------------------------------------------- |
 | [不邻接植花](https://leetcode-cn.com/problems/flower-planting-with-no-adjacent/) | 简单 | [LeetCode1042](./LeetCode/LeetCode每日一题/LeetCode1042.md) |
-|                                                              |      |                                                             |
+| [课程表II](https://leetcode-cn.com/problems/course-schedule-ii/) | 中等 | [LeetCode210](./LeetCode/LeetCode每日一题/LeetCode210.md)   |
 |                                                              |      |                                                             |
 
 
