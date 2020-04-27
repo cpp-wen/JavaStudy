@@ -8,23 +8,23 @@
 
 - [双指针](双指针)
 
-- 滑动窗口
+- [滑动窗口](滑动窗口)
 
-- 快慢指针
+- [快慢指针](快慢指针)
 
-- 动态规划
+- [动态规划](动态规划)
 
-- 数组
+- [数组](数组)
 
-- 树
+- [树](树)
 
-- 回溯
+- [回溯](回溯)
 
-- 贪心
+- [贪心](贪心)
 
-- dfs+bfs
+- [dfs+bfs](dfs+bfs)
 
-- 设计类
+- [设计类](设计类)
 
   
 
@@ -174,29 +174,27 @@
 
 
 
-
-
 | 题目                                                         | 难度 | 题解                                                         |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
-| <span id = "jump">跳转到的位置</span>                        |      |                                                              |
+| <span id = "dfs+bfs" style="font-size:150%;"><b>dfs+bfs</b></span> |      |                                                              |
 | [332. 重新安排行程](https://leetcode-cn.com/problems/reconstruct-itinerary/) | 中等 | [LeetCode332](../LeetCode每日一题/LeetCode332.md)   |
 | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 中等 | [LeetCode130](./LeetCode每日一题/LeetCode130.md)    |
 | [93. 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) | 中等 | [LeetCode93](./LeetCode每日一题/LeetCode93.md)      |
 | [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      | 困难 | [LeetCode51](./LeetCode每日一题/LeetCode51.md)      |
 | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 中等 | [LeetCode17](./LeetCode每日一题/LeetCode17.md)      |
 | [面试题13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) | 中等 | [13](./剑指offer/13.md)                             |
-| 位运算                                                       |      |                                                              |
+| <span id = "dfs+bfs" style="font-size:150%;"><b>位运算</b></span> |      |                                                              |
 | [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)        | 中等 | [LeetCode50](./LeetCode每日一题/LeetCode50.md) 快速幂思想 |
 | [只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii/) | 中等 | [LeetCode260](./LeetCode每日一题/LeetCode260.md)    |
 | [两整数之和](https://leetcode-cn.com/problems/sum-of-two-integers/) | 简单 | [LeetCode371](./LeetCode每日一题/LeetCode371.md) 机组知识 |
 | [面试题 08.04. 幂集](https://leetcode-cn.com/problems/power-set-lcci/) | 中等 | [LeetCodeX0804](./LeetCode每日一题/LeetCodeX0804.md) 位运算更加巧妙 |
 | [最大单词长度乘积](https://leetcode-cn.com/problems/maximum-product-of-word-lengths/) | 中等 | [LeetCode318](./LeetCode每日一题/LeetCode318.md) hash+位运算 |
-| 图                                                       |      |                                                              |
+| <span id = "图" style="font-size:150%;"><b>图</b></span> |      |                                                              |
 | [不邻接植花](https://leetcode-cn.com/problems/flower-planting-with-no-adjacent/) | 简单 | [LeetCode1042](./LeetCode每日一题/LeetCode1042.md) |
 | [课程表II](https://leetcode-cn.com/problems/course-schedule-ii/) | 中等 | [LeetCode210](./LeetCode每日一题/LeetCode210.md)   |
-| 堆 排序 分治                                                       |      |                                                              |
+| <span id = "堆 排序 分治" style="font-size:150%;"><b>堆 排序 分治</b></span> |      |                                                              |
 | [最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin/) | 中等 | [LeetCode973](./LeetCode每日一题/LeetCode973.md) 堆 分治 |
-| 设计类题目                                                       |      |                                                              |
+| <span id = "设计类" style="font-size:150%;"><b>设计类</b></span> |      |                                                              |
 | [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/) |困难|[LeetCode460](./LeetCode每日一题/LeetCode460.md)|
 
 
