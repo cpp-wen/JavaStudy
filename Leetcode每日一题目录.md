@@ -182,7 +182,13 @@
 | [课程表II](https://leetcode-cn.com/problems/course-schedule-ii/) | 中等 | [LeetCode210](./LeetCode/LeetCode每日一题/LeetCode210.md)   |
 |                                                              |      |                                                             |
 
+##### 堆 排序 分治
 
+| 题目                                                         | 难度 | 题解                                                         |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+| [973. 最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin/) | 中等 | [LeetCode973](./LeetCode/LeetCode每日一题/LeetCode973.md) 堆 分治 |
+|                                                              |      |                                                              |
+|                                                              |      |                                                              |
 
 
 
