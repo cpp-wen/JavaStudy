@@ -4,7 +4,7 @@
 
 [LeetCode01](./LeetCode/LeetCode每日一题/LeetCode01.md)
 
-
+[说明文字](#jump)
 
 ##### 链表操作
 
@@ -13,8 +13,6 @@
 [LeetCode206](./LeetCode/LeetCode每日一题/LeetCode206.md)
 
 [LeetCode138](./LeetCode/LeetCode每日一题/LeetCode138.md)
-
-
 
 ##### 二分查找
 
@@ -150,13 +148,7 @@
 
 
 
-JavaStudy/tree/master/LeetCode/LeetCode每天一题
 
-JavaStudy/blob/master/LeetCode/LeetCode每日一题/LeetCode50.md
-
-
-
-##### dfs+bfs
 
 | 题目                                                         | 难度 | 题解                                                       |
 | ------------------------------------------------------------ | ---- | ---------------------------------------------------------- |
@@ -166,7 +158,7 @@ JavaStudy/blob/master/LeetCode/LeetCode每日一题/LeetCode50.md
 | [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      | 困难 | [LeetCode51](./LeetCode/LeetCode每日一题/LeetCode51.md)    |
 | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 中等 | [LeetCode17](./LeetCode/LeetCode每日一题/LeetCode17.md)    |
 | [面试题13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) | 中等 | [13](./LeetCode/剑指offer/13.md)                           |
-|                                                              |      |                                                            |
+| <span id = "jump">跳转到的位置</span>                        |      |                                                            |
 |                                                              |      |                                                            |
 
 
@@ -175,9 +167,10 @@ JavaStudy/blob/master/LeetCode/LeetCode每日一题/LeetCode50.md
 
 ##### 位运算
 
-| 题目                                                         | 难度 | 题解                                                         |
-| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
-| [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)        | 中等 | [LeetCode50](./LeetCode/LeetCode每日一题/LeetCode50.md) 快速幂思想 |
+
+|                             题目                             | 难度 | 题解                                                         |
+| :----------------------------------------------------------: | :--: | :----------------------------------------------------------- |
+|    [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)     | 中等 | [LeetCode50](./LeetCode/LeetCode每日一题/LeetCode50.md) 快速幂思想 |
 | [只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii/) | 中等 | [LeetCode260](./LeetCode/LeetCode每日一题/LeetCode260.md)    |
 | [两整数之和](https://leetcode-cn.com/problems/sum-of-two-integers/) | 简单 | [LeetCode371](./LeetCode/LeetCode每日一题/LeetCode371.md) 机组知识 |
 | [面试题 08.04. 幂集](https://leetcode-cn.com/problems/power-set-lcci/) | 中等 | [LeetCodeX0804](./LeetCode/LeetCode每日一题/LeetCodeX0804.md) 位运算更加巧妙 |
