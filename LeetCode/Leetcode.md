@@ -6,25 +6,25 @@
 
 - [二分](#二分)
 
-- [双指针](双指针)
+- [双指针](#双指针)
 
-- [滑动窗口](滑动窗口)
+- [滑动窗口](#滑动窗口)
 
-- [快慢指针](快慢指针)
+- [快慢指针](#快慢指针)
 
-- [动态规划](动态规划)
+- [动态规划](#动态规划)
 
-- [数组](数组)
+- [数组](#数组)
 
-- [树](树)
+- [树](#树)
 
-- [回溯](回溯)
+- [回溯](#回溯)
 
-- [贪心](贪心)
+- [贪心](#贪心)
 
-- [dfs+bfs](dfs+bfs)
+- [dfs+bfs](#dfs+bfs)
 
-- [设计类](设计类)
+- [设计类](#设计类)
 
   
 
@@ -194,7 +194,7 @@
 | [课程表II](https://leetcode-cn.com/problems/course-schedule-ii/) | 中等 | [LeetCode210](./LeetCode每日一题/LeetCode210.md)   |
 | <span id = "堆 排序 分治" style="font-size:150%;"><b>堆 排序 分治</b></span> |      |                                                              |
 | [最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin/) | 中等 | [LeetCode973](./LeetCode每日一题/LeetCode973.md) 堆 分治 |
-| <span id = "设计类" style="font-size:150%;"><b>设计类</b></span> |      |                                                              |
+| <span id = "设计类" style="font-size:150%;">设计类</span> |      |                                                              |
 | [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/) |困难|[LeetCode460](./LeetCode每日一题/LeetCode460.md)|
 
 
