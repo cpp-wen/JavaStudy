@@ -1,4 +1,4 @@
-# LeetCode算法
+LeetCode算法
 
 - [哈希](#哈希)
 
@@ -30,21 +30,24 @@
 
 ##### hash相关
 
-[LeetCode01](./LeetCode每日一题/LeetCode01.md)
+| 题目                                                         | 难度 | 题解                                             |
+| ------------------------------------------------------------ | ---- | ------------------------------------------------ |
+| <span id = "Hash" style="font-size:150%;"><b>Hash</b></span> |      |                                                  |
+| [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 简单 | [LeetCode01](./LeetCode每日一题/LeetCode01.md)   |
+| [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 中等 | [LeetCode01](./LeetCode每日一题/LeetCode36.md)   |
+|                                                              |      |                                                  |
+| <span id = "Hash" style="font-size:150%;"><b>链表</b></span> |      |                                                  |
+| [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 简单 | [LeetCode206](./LeetCode每日一题/LeetCode206.md) |
+| [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/) | 中等 | [LeetCode2](./LeetCode每日一题/LeetCode02.md)    |
+| [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 中等 | [LeetCode138](./LeetCode每日一题/LeetCode138.md) |
+|                                                              |      |                                                  |
+| <span id = "Hash" style="font-size:150%;"><b>二分查找</b></span> |      |                                                  |
+| [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 中等 | [LeetCode29](./LeetCode每日一题/LeetCode29.md)   |
+|                                                              |      |                                                  |
+| <span id = "Hash" style="font-size:150%;"><b>双指针or滑动窗口</b></span> |      |                                                  |
+|                                                              |      |                                                  |
 
-##### 链表操作
-
-[LeetCode2](./LeetCode每日一题/LeetCode02.md)
-
-[LeetCode206](./LeetCode每日一题/LeetCode206.md)
-
-[LeetCode138](./LeetCode每日一题/LeetCode138.md)
-
-##### 二分查找
-
-[LeetCode29](./LeetCode每日一题/LeetCode29.md)
-
-
+##### 
 
 ##### 双指针以及滑动窗口
 
@@ -182,7 +185,7 @@
 | [93. 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) | 中等 | [LeetCode93](./LeetCode每日一题/LeetCode93.md)      |
 | [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      | 困难 | [LeetCode51](./LeetCode每日一题/LeetCode51.md)      |
 | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 中等 | [LeetCode17](./LeetCode每日一题/LeetCode17.md)      |
-| [面试题13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/) | 中等 | [13](./剑指offer/13.md)                             |
+|                                                              |      |                                                              |
 | <span id = "dfs+bfs" style="font-size:150%;"><b>位运算</b></span> |      |                                                              |
 | [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)        | 中等 | [LeetCode50](./LeetCode每日一题/LeetCode50.md) 快速幂思想 |
 | [只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii/) | 中等 | [LeetCode260](./LeetCode每日一题/LeetCode260.md)    |
