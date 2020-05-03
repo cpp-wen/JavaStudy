@@ -251,7 +251,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
 
 ## jdk1.7
 
-![](C:\Users\caopeng\Pictures\学校课程\20200322224405.png)
+![](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200502225008.png)
 
 其中Segment数组容量初始化为16，hashEntry数组的大小为2，两者扩容大小都为2的幂次。
 
@@ -281,7 +281,7 @@ size方法
 
 ## jdk1.8
 
-![img](https://upload-images.jianshu.io/upload_images/2184951-d9933a0302f72d47.png?imageMogr2/auto-orient/strip|imageView2/2/w/768/format/webp)
+![image-20200502225025914](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200502225027.png)
 
 put方法 
 
