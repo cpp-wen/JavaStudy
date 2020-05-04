@@ -40,14 +40,14 @@ LeetCode算法
 | [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 简单 | [LeetCode206](./LeetCode每日一题/LeetCode206.md) |
 | [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/) | 中等 | [LeetCode2](./LeetCode每日一题/LeetCode02.md)    |
 | [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | 中等 | [LeetCode138](./LeetCode每日一题/LeetCode138.md) |
-|                                                              |      |                                                  |
+| [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/) | 困难 | [LeetCode138](./LeetCode每日一题/LeetCode25.md)  |
 | <span id = "Hash" style="font-size:150%;"><b>二分查找</b></span> |      |                                                  |
 | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 中等 | [LeetCode29](./LeetCode每日一题/LeetCode29.md)   |
 |                                                              |      |                                                  |
 | <span id = "Hash" style="font-size:150%;"><b>双指针or滑动窗口</b></span> |      |                                                  |
 |                                                              |      |                                                  |
 
-##### 
+
 
 ##### 双指针以及滑动窗口
 
@@ -171,21 +171,23 @@ LeetCode算法
 
 
 
-##### 贪心
 
-[LeetCode55](./LeetCode每日一题/LeetCode55.md) 跳跃游戏 贪心入门
 
 
 
 | 题目                                                         | 难度 | 题解                                                         |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
+|  |  |  |
+|  |  |  |
+| <span id = "贪心" style="font-size:150%;"><b>贪心</b></span> |      |                                                              |
+| [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/) | 中等 | [LeetCode55](../LeetCode每日一题/LeetCode55.md) |
 | <span id = "dfs+bfs" style="font-size:150%;"><b>dfs+bfs</b></span> |      |                                                              |
 | [332. 重新安排行程](https://leetcode-cn.com/problems/reconstruct-itinerary/) | 中等 | [LeetCode332](../LeetCode每日一题/LeetCode332.md)   |
 | [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions/) | 中等 | [LeetCode130](./LeetCode每日一题/LeetCode130.md)    |
 | [93. 复原IP地址](https://leetcode-cn.com/problems/restore-ip-addresses/) | 中等 | [LeetCode93](./LeetCode每日一题/LeetCode93.md)      |
 | [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      | 困难 | [LeetCode51](./LeetCode每日一题/LeetCode51.md)      |
 | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 中等 | [LeetCode17](./LeetCode每日一题/LeetCode17.md)      |
-|                                                              |      |                                                              |
+| [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/) | 困难 |                                                              |
 | <span id = "dfs+bfs" style="font-size:150%;"><b>位运算</b></span> |      |                                                              |
 | [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)        | 中等 | [LeetCode50](./LeetCode每日一题/LeetCode50.md) 快速幂思想 |
 | [只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii/) | 中等 | [LeetCode260](./LeetCode每日一题/LeetCode260.md)    |
