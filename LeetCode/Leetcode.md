@@ -129,22 +129,6 @@ LeetCode算法
 
 
 
-##### 树
-
-[LeetCode112](./LeetCode每日一题/LeetCode112.md)
-
-[LeetCode113](./LeetCode每日一题/LeetCode113.md)
-
-[LeetCode129](./LeetCode每日一题/LeetCode129.md)
-
-[LeetCode214](./LeetCode每日一题/LeetCode214.md)
-
-[LeetCode257](./LeetCode每日一题/LeetCode257.md)
-
-[LeetCode404](./LeetCode每日一题/LeetCode404.md)
-
-
-
 ##### 回溯
 
 [LeetCode22](./LeetCode每日一题/LeetCode22.md) [括号生成](https://leetcode-cn.com/problems/generate-parentheses/) 不是很难
@@ -177,8 +161,16 @@ LeetCode算法
 
 | 题目                                                         | 难度 | 题解                                                         |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
-|  |  |  |
-|  |  |  |
+| <span id = "贪心" style="font-size:150%;"><b>树</b></span> |  |  |
+| [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/) | 中等 | [LeetCode98](./LeetCode每日一题/LeetCode98.md) |
+| [112. 路径总和](https://leetcode-cn.com/problems/path-sum/) | 简单 | [LeetCode112](./LeetCode每日一题/LeetCode112.md) |
+| [113. 路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/) | 中等 | [LeetCode113](./LeetCode每日一题/LeetCode113.md) |
+| [129. 求根到叶子节点数字之和](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/) | 中等 | [LeetCode129](./LeetCode每日一题/LeetCode129.md) |
+| [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) | 简单 | [LeetCode257](./LeetCode每日一题/LeetCode257.md)             |
+| [404. 左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/) | 简单 | [LeetCode404](./LeetCode每日一题/LeetCode404.md) |
+| | |                                                              |
+| | |  |
+| | | |
 | <span id = "贪心" style="font-size:150%;"><b>贪心</b></span> |      |                                                              |
 | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/) | 中等 | [LeetCode55](../LeetCode每日一题/LeetCode55.md) |
 | <span id = "dfs+bfs" style="font-size:150%;"><b>dfs+bfs</b></span> |      |                                                              |
@@ -197,6 +189,7 @@ LeetCode算法
 | <span id = "图" style="font-size:150%;"><b>图</b></span> |      |                                                              |
 | [不邻接植花](https://leetcode-cn.com/problems/flower-planting-with-no-adjacent/) | 简单 | [LeetCode1042](./LeetCode每日一题/LeetCode1042.md) |
 | [课程表II](https://leetcode-cn.com/problems/course-schedule-ii/) | 中等 | [LeetCode210](./LeetCode每日一题/LeetCode210.md)   |
+| [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/) | 中等 | [LeetCode743](./LeetCode每日一题/LeetCode743.md)  路径算法 |
 | <span id = "堆 排序 分治" style="font-size:150%;"><b>堆 排序 分治</b></span> |      |                                                              |
 | [最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin/) | 中等 | [LeetCode973](./LeetCode每日一题/LeetCode973.md) 堆 分治 |
 | <span id = "设计类" style="font-size:150%;">设计类</span> |      |                                                              |
