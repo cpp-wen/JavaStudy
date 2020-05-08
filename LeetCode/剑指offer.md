@@ -21,9 +21,14 @@
 | [面试题20. 表示数值的字符串](https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/) | 状态机 正则表达 | [题解](./剑指offer/20.md)    | 中等 |                  |
 | [面试题21. 调整数组顺序使奇数位于偶数前面](https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/) | 数组            | [题解](./剑指offer/21.md)    | 简单 | 字节             |
 | [面试题22. 链表中倒数第k个节点](https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/) | 链表            | [题解](./剑指offer/22.md)    | 简单 |                  |
-|                                                              |                 |                              |      |                  |
-|                                                              |                 |                              |      |                  |
-|                                                              |                 |                              |      |                  |
+| [面试题24. 反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/) | 链表            | [题解](./剑指offer/24.md)    | 简单 | 美团             |
+| [面试题25. 合并两个排序的链表](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/) | l链表           | [题解](./剑指offer/25.md)    | 简单 |                  |
+| [面试题26. 树的子结构](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/) | 树              | [题解](./剑指offer/26.md)    | 中等 |                  |
+| [面试题27. 二叉树的镜像](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/) | 树              | [题解](./剑指offer/27.md)    | 简单 |                  |
+| [面试题28. 对称的二叉树](https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/) | 树              | [题解](./剑指offer/28.md)    | 简单 |                  |
+| [面试题29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/) | 数组            | [题解](./剑指offer/29.md)    | 中等 |                  |
+| [面试题30. 包含min函数的栈](https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/) | 设计类          | [题解](./剑指offer/30.md)    | 简单 |                  |
+| [面试题31. 栈的压入、弹出序列](https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/) | 设计类          | [题解](./剑指offer/31.md)    | 中等 |                  |
 |                                                              |                 |                              |      |                  |
 |                                                              |                 |                              |      |                  |
 
