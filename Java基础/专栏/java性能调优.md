@@ -58,5 +58,136 @@
 
 
 
-![image-20200508002350642](C:\Users\caopeng\AppData\Roaming\Typora\typora-user-images\image-20200508002350642.png)
+![image-20200508002350642](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200508233655.png)
+
+
+
+# 03 | 字符串性能优化不容小觑，百M内存轻松存储几十G数据
+
+**String 对象是如何实现的？**
+
+![image-20200509223036648](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200509223038.png)
+
+**1. 在 Java6 以及之前的版本中**，String 对象是对 char 数组进行了封装实现的对象，主要有四个成员变量：char 数组、偏移量 offset、字符数量 count、哈希值 hash。
+
+String 对象是通过 offset 和 count 两个属性来定位 char[] 数组，获取字符串。这么做可以高效、快速地共享数组对象，同时节省内存空间，但这种方式很有可能会导致内存泄漏。
+
+**2. 从 Java7 版本开始到 Java8 版本**，Java 对 String 类做了一些改变。String 类中不再有 offset 和 count 两个变量了。这样的好处是 String 对象占用的内存稍微少了些，同时，String.substring 方法也不再共享 char[]，从而解决了使用该方法可能导致的内存泄漏问题。
+
+**3. 从 Java9 版本开始，**工程师将 char[] 字段改为了 byte[] 字段，又维护了一个新的属性 coder，它是一个编码格式的标识。coder 属性默认有 0 和 1 两个值，0 代表 Latin-1（单字节编码），1 代表 UTF-16。如果 String 判断字符串只包含了 Latin-1，则 coder 属性值为 0，反之则为 1。
+
+**String 对象的优化**
+
+java内部编译器会使用StringBuilder对两个string类相互拼接时候进行一个优化
+
+```java
+//原来的形式
+string a="aaa"+"bbb"+"cccc";
+//优化后形式
+string a="aaabbbccc";
+```
+
+如果有多个字符串要进行拼接，这个时候java底层会使用builder对代码优化 
+
+![image-20200509223929926](C:\Users\caopeng\AppData\Roaming\Typora\typora-user-images\image-20200509223929926.png)
+
+![image-20200509223941501](C:\Users\caopeng\AppData\Roaming\Typora\typora-user-images\image-20200509223941501.png)
+
+所以在自己实现代码的时候 可以直接创建一个builder对象 对代码进行一个优化，避免重复创建builder对象。
+
+**如何使用 String.intern 节省内存？**
+
+使用intern()方法将常用字符串保存到常量池中,复用常量池中字符串的引用。使得堆中没有对象引用的字符串被虚拟机进行垃圾回收。减少jvm内存空间的消耗。
+
+![image-20200509224325765](C:\Users\caopeng\AppData\Roaming\Typora\typora-user-images\image-20200509224325765.png)
+
+常量池使用的是Hashtable类似的结构 ，那么如果常量池的数据量过大，这个时候查找对性能也会有一定的影响。
+
+
+
+**如何使用字符串的分割方法**
+
+字符串的分割方法跟split()方法有关系，split()进行正则表达式的时候 会根据表达式的情况进行发生贪婪独占回溯的三种情况。对性能也会有一定的影响。可以考虑使用indexOf()来替代进行数据的查找。
+
+
+
+优质评论 
+
+1. java6中 使用subString()方法获取一个子字符串，内部修改的是offset指针指向的下标，导致当前char数组并没有被回收使得内存泄露，如果有大量的通过subString()方法从大字符串数组中获取 一小部分字符串的时候，会因为内存泄露导致内存溢出。
+
+
+
+# 04 | 慎重使用正则表达式
+
+表达式 的优化主要跟三种模式有关系，具体使用场景具体优化。尽量避免使用。
+
+# 05 | ArrayList还是LinkedList？使用不当性能差千倍
+
+为什么Arraylist中实现了序列化的接口但是在数组前面添加了transient 修饰符，不对数组进行序列化。因为ArrayList对数组长度是进行动态扩增的，所创建的空间并不一定被充分使用，所以在内部提供了两个私有方法wirteObject和readObject实现自我完成序列化和反序列化 ，从而在序列化和反序列化数组时节省了空间和时间。
+
+
+
+使用ArrayList 的构造方法的提前初始化数组的长度，避免多次动态进行数组容量的扩容。数组扩容方式是使用1,5倍进行扩容的。扩容后调用Arrays.copy方法进行数组复制
+
+
+
+两种链表比较的时候考虑插入和删除分别在不同位置的区别,以及从缓存不友好的角度进行分析.
+
+头部插入  头部删除
+
+中间插入  中间删除
+
+尾部插入  尾部删除
+
+性能比较Arraylist 在头部插入的效率不如LinkedList，而中间和尾部插入的效率ArrayList大于LinkedList。(以上场景是根据ArrayList不进行数组扩容的情况下进行分析的场景)[删除效率相同]
+
+
+
+链表进行元素删除的时候要注意使用使用的哪种迭代方式，如果是使用迭代器迭代那么使用迭代的时候如果调用链表本身的remove方法会报出exceptedModcountException异常，使用迭代器的方法就没有这个问题。使用原生的for方法进行remove的时候这个时候，因为调用remove方法的时候会复制后面一个元素往前面移动同时i增大，这个时候会发生原先 应该遍历 元素未被遍历 产生遗漏。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

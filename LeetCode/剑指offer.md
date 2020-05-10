@@ -1,7 +1,5 @@
 # 题目
 
-先写md吧后期换java源码的格式
-
 | 题目                                                         | 类型            | 题解                         | 难度 | 某个公司遇到题目 |
 | ------------------------------------------------------------ | --------------- | ---------------------------- | ---- | ---------------- |
 |                                                              |                 |                              |      |                  |
@@ -29,6 +27,13 @@
 | [面试题29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/) | 数组            | [题解](./剑指offer/29.md)    | 中等 |                  |
 | [面试题30. 包含min函数的栈](https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/) | 设计类          | [题解](./剑指offer/30.md)    | 简单 |                  |
 | [面试题31. 栈的压入、弹出序列](https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/) | 设计类          | [题解](./剑指offer/31.md)    | 中等 |                  |
+| [面试题32 - I. 从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/) | 树              | [题解](./剑指offer/32.md)    | 中等 |                  |
+| [面试题32 - II. 从上到下打印二叉树 II](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/) | 树              | [题解](./剑指offer/32(2).md) | 中等 |                  |
+| [面试题32 - III. 从上到下打印二叉树 III](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/) | 树              | [题解](./剑指offer/32(3).md) | 中等 |                  |
+| [面试题33. 二叉搜索树的后序遍历序列](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/) | 树              | [题解](./剑指offer/33.md)    | 中等 |                  |
+| [面试题34. 二叉树中和为某一值的路径](https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/) | 数 回溯         | [题解](./剑指offer/34.md)    | 中等 |                  |
+|                                                              |                 |                              |      |                  |
+|                                                              |                 |                              |      |                  |
 |                                                              |                 |                              |      |                  |
 |                                                              |                 |                              |      |                  |
 
