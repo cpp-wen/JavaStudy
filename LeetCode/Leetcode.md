@@ -66,8 +66,6 @@ LeetCode算法
 
 ##### 数组
 
-[面试题LeetCode04](./LeetCode每日一题/LeetCodeX04.md)
-
 [面试题LeetCode164](./LeetCode每日一题/LeetCode164.md)
 
 [程序员代码指南LeetCode1710](./LeetCode每日一题/LeetCodeX1710.md)   摩尔投票问题进化
@@ -92,8 +90,6 @@ LeetCode算法
 
 [LeetCode131](./LeetCode每日一题/LeetCode131.md)
 
-[LeetCode200](./LeetCode每日一题/LeetCode200.md)
-
 [LeetCode216](./LeetCode每日一题/LeetCode216.md)
 
 [LeetCode401](./LeetCode每日一题/LeetCode401.md) 回溯比二进制算法难度大
@@ -102,6 +98,9 @@ LeetCode算法
 
 | 题目                                                         | 难度 | 题解                                             | 类型 |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------ | ---- |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
 | <span id = "Hash" style="font-size:150%;"><b>Hash</b></span> |      |                                                  |      |
 | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 简单 | [LeetCode01](./LeetCode每日一题/LeetCode01.md)   |      |
 | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 中等 | [LeetCode01](./LeetCode每日一题/LeetCode36.md)   |      |
@@ -163,6 +162,8 @@ LeetCode算法
 | [51. N皇后](https://leetcode-cn.com/problems/n-queens/)      | 困难 | [LeetCode51](./LeetCode每日一题/LeetCode51.md)      |  |
 | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) | 中等 | [LeetCode17](./LeetCode每日一题/LeetCode17.md)      |  |
 | [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/) | 困难 | [LeetCode45](./LeetCode每日一题/LeetCode45.md) |  |
+| [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) | 中等 | [LeetCode200](./LeetCode每日一题/LeetCode200.md) | |
+| [329. 矩阵中的最长递增路径](https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/) | 困难 | [LeetCode329](./LeetCode每日一题/LeetCode329.md) | 记忆化搜索 |
 | <span id = "dfs+bfs" style="font-size:150%;"><b>位运算</b></span> |      |                                                              |  |
 | [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)        | 中等 | [LeetCode50](./LeetCode每日一题/LeetCode50.md) | 快速幂思想 |
 | [只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii/) | 中等 | [LeetCode260](./LeetCode每日一题/LeetCode260.md)    |  |

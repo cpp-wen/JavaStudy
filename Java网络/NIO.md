@@ -200,6 +200,15 @@ ok为了解决上面的问题，java在JDK1.4的时候对io进行了重新编写
 >
 > ——Java面试专栏的例子
 
+| **组合方式** | **性能分析**                                                 |
+| :----------- | :----------------------------------------------------------- |
+| 同步阻塞     | 最常用的一种用法，使用也是最简单的，但是 I/O 性能一般很差，CPU 大部分在空闲状态。 |
+| 同步非阻塞   | 提升 I/O 性能的常用手段，就是将 I/O 的阻塞改成非阻塞方式，尤其在网络 I/O 是长连接，同时传输数据也不是很多的情况下，提升性能非常有效。 这种方式通常能提升 I/O 性能，但是会增加 CPU 消耗，要考虑增加的 I/O 性能能不能补偿 CPU 的消耗，也就是系统的瓶颈是在 I/O 还是在 CPU 上。 |
+| 异步阻塞     | 这种方式在分布式数据库中经常用到，例如在往一个分布式数据库中写一条记录，通常会有一份是同步阻塞的记录，而还有两至三份是备份记录会写到其它机器上，这些备份记录通常都是采用异步阻塞的方式写 I/O。 异步阻塞对网络 I/O 能够提升效率，尤其像上面这种同时写多份相同数据的情况。 |
+| 异步非阻塞   | 这种组合方式用起来比较复杂，只有在一些非常复杂的分布式情况下使用，像集群之间的消息同步机制一般用这种 I/O 组合方式。如 Cassandra 的 Gossip 通信机制就是采用异步非阻塞的方式。 它适合同时要传多份相同的数据到集群中不同的机器，同时数据的传输量虽然不大，但是却非常频繁。这种网络 I/O 用这个方式性能能达到最高。 |
+
+
+
 
 
 一开始我们举例的就是一个BIO （同步阻塞）典型案例，因为socket中的socket.accept()、socket.read()、socket.write()三个主要函数都是同步阻塞的。所以当一个连接在处理I/O的时候，系统是阻塞的，如果是单线程的话必然就挂死在那里。也就是我们的服务端只能与一个客户端建立连接。
@@ -420,31 +429,323 @@ ublic class FileCopyDemo {
 
 
 
+### Selector 
+
+NIO中最重要也是最难理解的就是Selector，可以说理解了selector 便可以理解NIO。简单的说选择器的使命是完成io的多路复用，通过selector选择器对多个io通道的事件进行监听。简单的来说，服务器端运行的这个线程负责监听是否有客户端想要建立连接的请求过来，有则对这个连接建立的通道进行监听，以防止后续有其他的读或者写的请求继续发送过来。如果某一个时刻注册的通道里监听到有两个服务器的通道有读或者写的通知过来，那么当前线程先对已到达的事件进行处理。处理完之后继续监听端口判断是否是通知未处理。 只用一个线程监控多个通道，极大的减少了线程之间上下文切换的开销。
+
+可供选择器监控的通道IO事件类型，包括以下四种：
+（1）可读：SelectionKey.OP_READ
+（2）可写：SelectionKey.OP_WRITE
+（3）连接：SelectionKey.OP_CONNECT
+（4）接收：SelectionKey.OP_ACCEPT
+
+这边的IO事件指的是某个通道当前具备完成某个IO操作的状态。
+
+在代码编写中使用选择器主要分为以下三个过程
+
+1. 获取选择器实例
+2. 将通道注册到选择器中
+3. 轮询感兴趣的IO就绪事件
+
+通过一个例子来会更好的理解NIO的模型，还是上面的那个聊天室的场景，这回使用NIO进行重写
+
+主要思路为下图
+
+![image-20200510204824069](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200510204825.png)
+
+```java
+//服务端代码
+public class ChatServer {
+    //定义常量
+    private final int PORT = 8888;
+    private ByteBuffer rBuffer;
+    private ByteBuffer wBuffer;
+    private final int BUFFER_SIZE = 1024;
+    private final String QUIT = "qiut";
+    private ServerSocketChannel server = null;
+
+    public void star() {
+        try {
+
+            //启动服务器
+            server = ServerSocketChannel.open();
+            //默认是阻塞式的调用 设置为非阻塞
+            server.configureBlocking(false);
+            server.socket().bind(new InetSocketAddress(PORT));
+            System.out.println("启动服务器,监听端口" + server.socket().getLocalPort());
+			//设置缓冲区
+            rBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+            wBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+			//调用Selector的静态方法创建选择器
+            Selector selector = Selector.open();
+            //注册事件
+            server.register(selector, SelectionKey.OP_ACCEPT);
+
+            //轮询处理事件//select()返回触发的事件个数
+            while (true) {
+                selector.select();
+                System.out.println("已有事件被触发");
+                //得到触发的事件key
+                Set<SelectionKey> selectionKeys = selector.selectedKeys();
+                for (SelectionKey key : selectionKeys) {
+                    //处理事件 handles为封装的处理事件函数
+                    handles(key);
+                }
+                //手动清空处理过的事件,如果不clear的话,会导致事件重复处理
+                selectionKeys.clear();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 处理请求
+    private void handles(SelectionKey key) throws IOException {
+        // 处理ACCEPT事件
+        if (key.isAcceptable()) {
+            //获取用户请求的连接socketChannel
+            SocketChannel socketChannel = server.accept();
+            //默认为阻塞式的
+            socketChannel.configureBlocking(false);
+            //将socketchannel 注册到 选择器中 设置监听通道OP_READ事件
+            socketChannel.register(key.selector(), SelectionKey.OP_READ);
+            System.out.println("客户端:" + socketChannel.socket().getPort() + "已连接");
+
+            // 处理READ事件
+        } else if (key.isReadable()) {
+            //读取消息
+            String msg = readMsg((SocketChannel) key.channel());
+            // 客户端异常
+            if (msg.isEmpty()) {
+                key.cancel();
+                key.selector().wakeup();
+            } else {
+                //转发消息
+                forwardMsg((SocketChannel) key.channel(), key, msg);
+                //判断是否要退出
+                if (QUIT.equals(msg)) {
+                    key.cancel();
+                    key.selector().wakeup();
+                    System.out.println("客户端" + ((SocketChannel) key.channel()).socket().getPort() + "已退出");
+                }
+            }
+
+        }
+    }
+
+    // 读消息
+    private String readMsg(SocketChannel channel) throws IOException {
+
+        rBuffer.clear();
+        // 如果用户一直输入的话,这里就一直读取,因为只要不关channel,用户可能一直输入
+        while (channel.read(rBuffer) > 0) ;
+        rBuffer.flip();
+        System.out.println("客户端" + channel.socket().getPort() + rBuffer.toString());
+        return rBuffer.toString();
+
+    }
+
+    // 转发消息 将客户端信息  通过服务器转发给 其他的客户端
+    private void forwardMsg(SocketChannel client, SelectionKey key, String msg) throws IOException {
+        // 只要注册的key都显示
+        Set<SelectionKey> keys = key.selector().keys();
+        for (SelectionKey selectionKey : keys) {
+            Channel channel = (Channel) selectionKey.channel();
+            //排除本身监听请求的端口
+            if (selectionKey.channel() instanceof ServerSocketChannel) continue;
+            //判断selector是否正常 以及 当前channel是否为发送消息的channel
+            if (key.isValid() && !selectionKey.channel().equals(client)) {
+                wBuffer.clear();
+                wBuffer.put(msg.getBytes());
+                wBuffer.flip();
+                //将缓冲区数据写入
+                while (wBuffer.hasRemaining()) {
+                    ((SocketChannel) channel).write(wBuffer);
+                }
+            }
+        }
+
+    }
+	//主线程 
+    public static void main(String[] args) {
+        ChatServer chatServer = new ChatServer();
+        chatServer.star();
+    }
+
+}
+
+```
+
+```java
+//客户端代码
+public class ChatClient {
+    private final String IP = "127.0.0.1";
+    private final int PORT = 8888;
+    private final String QUIT = "quit";
+    private final int BUFFER_SIZE = 1024;
+    private SocketChannel client = null;
+	
+    private ByteBuffer rBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+    private ByteBuffer wBuffer = ByteBuffer.allocate(BUFFER_SIZE);
+
+
+    private void star() {
+        try {
+            //调用静态方法创建客户端通道
+            client = SocketChannel.open();
+            client.configureBlocking(false);
+
+            Selector selector = Selector.open();
+            // 注册connect事件
+            client.register(selector, SelectionKey.OP_CONNECT);
+
+            //请求连接 异步
+            client.connect(new InetSocketAddress(IP, PORT));
+
+            while (true) {
+                selector.select();
+                for (SelectionKey key : selector.selectedKeys()) {
+                    // 处理事件
+                    handles(key);
+                }
+                selector.selectedKeys().clear();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private void handles(SelectionKey key) throws IOException {
+        SocketChannel socketChannel = (SocketChannel) key.channel();
+        if (key.isConnectable()) {
+            //如果返回true就说明连接就绪,可以停止连接这个动作了,false的话说明还没有连接,需要等待
+            if (socketChannel.isConnectionPending()) {
+                socketChannel.finishConnect();
+
+                // 创建一个新线程 处理用户输入 
+                new Thread(new UserInputHandler(this)).start();
+                System.out.println("连接成功");
+            }
+            socketChannel.register(key.selector(), SelectionKey.OP_READ);
+            // READ事件
+        } else if (key.isReadable()) {
+            String msg = readMsg(socketChannel);
+            if (msg.isEmpty()) {
+                close(key.selector());
+            } else {
+                System.out.println(msg);
+            }
+        }
+
+    }
+
+    // 读消息
+    private String readMsg(SocketChannel socketChannel) throws IOException {
+        rBuffer.clear();
+        while (socketChannel.read(rBuffer) > 0) ;
+        rBuffer.flip();
+        return rBuffer.toString();
+    }
+
+    // 发消息
+    public void send(String msg) throws IOException {
+        if (msg.isEmpty()) return;
+        wBuffer.clear();
+        wBuffer.put(msg.getBytes());
+        wBuffer.flip();
+        while (wBuffer.hasRemaining()) {
+            client.write(wBuffer);
+        }
+
+        // 检测用户是否退出
+        if (readToQuit(msg)) {
+            client.close();
+        }
+
+    }
+
+    public static void close(Closeable closeable) {
+        try {
+            closeable.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //判断是否准备退出
+    public boolean readToQuit(String msg) {
+        return QUIT.equals(msg);
+    }
+
+    public static void main(String[] args) {
+        ChatClient chatClient = new ChatClient();
+        chatClient.star();
+    }
+}
+```
+
+```java
+//客户端
+public class UserInputHandler implements Runnable {
+    
+    private ChatClient chatClient;
+
+    public UserInputHandler(ChatClient chatClient) {
+        this.chatClient = chatClient;
+    }
+
+    @Override
+    public void run() {
+        BufferedReader reader = null;
+        try {
+            //获取本地输入
+            reader = new BufferedReader(
+                    new InputStreamReader(System.in));
+            //循坏等待用户输入
+            while (true) {
+                String msg = reader.readLine();
+				//这边调用主线程的send方法
+                chatClient.send(msg);
+                //判断是否退出
+                if (chatClient.readToQuit(msg)) {
+                    break;
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+}
+```
+
+如何你上面的例子不是很明白，没事，只要大概理解就可以。
+
+在看的时候是你是否有疑问，如果nio性能真的有这么好吗，如果有1w个客户端连接服务器，那么每个请求到达的时候都要执行一定的语句进行事件的处理，这个时候是如何保证高性能的。
+
+这块涉及到零拷贝的实现，如果展开需要很多时间，简单来说：系统io都分为两个阶段，等待就绪和操作。读操作分为等待系统可以读和真正读数据，写操作分别等待数据网卡可以写和真正可以写。需要说明的是等待就绪的阻塞是不使用CPU的，是在“空等”；而真正的读写操作的阻塞是使用CPU的，真正在”干活”，而且这个过程非常快，属于memory copy，带宽通常在1GB/s级别以上，可以理解为基本不耗时。
+
+下图是几种常见I/O模型的对比：
+
+![image-20200510215405880](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200510215408.png)
+
+同时NIO的读写函数可以立刻返回，这就给了我们不开线程利用CPU的最好机会：如果一个连接不能读写（socket.read()返回0或者socket.write()返回0），我们可以把这件事记下来，记录的方式通常是在Selector上注册标记位，然后切换到其它就绪的连接（channel）继续进行读写。
 
 
 
 
-为什么计算机网络问题引出为什么io不断的再优化 ，
-
-同步
-
-异步
-
-阻塞
-
-非阻塞
 
 
-
-BIO 
-
-NIO
-
-AIO
-
-linux文件内容
-
-文件描述符
 
 
 
@@ -463,3 +764,5 @@ reactor模型 redis netty源码中的使用
 > 慕课专栏 高薪之路 java面试题精选
 >
 > Netty、Redis、Zookeeper高并发实战
+>
+> [浅谈NIO与零拷贝](https://juejin.im/post/5c1c532551882579520b1f47)
