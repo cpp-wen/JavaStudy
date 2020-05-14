@@ -54,53 +54,25 @@ LeetCode算法
 
 [LeetCode1248](./LeetCode每日一题/LeetCode1248.md) 滑动窗口问题 
 
-
-
 [LeetCode202](./LeetCode每日一题/LeetCode202.md)
-
-
-
-
-
-
-
-##### 数组
-
-[面试题LeetCode164](./LeetCode每日一题/LeetCode164.md)
-
-[程序员代码指南LeetCode1710](./LeetCode每日一题/LeetCodeX1710.md)   摩尔投票问题进化
-
-
-
-##### 回溯
-
-[LeetCode22](./LeetCode每日一题/LeetCode22.md) [括号生成](https://leetcode-cn.com/problems/generate-parentheses/) 不是很难
-
-[LeetCode39](./LeetCode每日一题/LeetCode39.md) 第一次直接写出来
-
-[LeetCode40](./LeetCode每日一题/LeetCode40.md)
-
-[LeetCode46](./LeetCode每日一题/LeetCode46.md)
-
-[LeetCode47](./LeetCode每日一题/LeetCode47.md) 剪枝不是很懂
-
-[LeetCode79](./LeetCode每日一题/LeetCode79.md) 
-
-[LeetCode90](./LeetCode每日一题/LeetCode90.md) 
-
-[LeetCode131](./LeetCode每日一题/LeetCode131.md)
-
-[LeetCode216](./LeetCode每日一题/LeetCode216.md)
-
-[LeetCode401](./LeetCode每日一题/LeetCode401.md) 回溯比二进制算法难度大
 
 
 
 | 题目                                                         | 难度 | 题解                                             | 类型 |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------ | ---- |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| <span id = "Hash" style="font-size:150%;"><b>回溯</b></span> |  |  |  |
+| [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) | 中等 | [LeetCode22](./LeetCode每日一题/LeetCode22.md) | |
+| [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) | 中等 | [LeetCode39](./LeetCode每日一题/LeetCode39.md) | |
+| [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/) | 中等 | [LeetCode40](./LeetCode每日一题/LeetCode40.md) | |
+| [46. 全排列](https://leetcode-cn.com/problems/permutations/) | 中等 | [LeetCode46](./LeetCode每日一题/LeetCode46.md) | |
+| [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) | 中等 | [LeetCode47](./LeetCode每日一题/LeetCode47.md) | |
+| [79. 单词搜索](https://leetcode-cn.com/problems/word-search/) | 中等 | [LeetCode79](./LeetCode每日一题/LeetCode79.md) | |
+| [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) | 中等 | [LeetCode90](./LeetCode每日一题/LeetCode90.md) | |
+| [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 中等 | [LeetCode131](./LeetCode每日一题/LeetCode131.md) | |
+| [216. 组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/) | 中等 | [LeetCode216](./LeetCode每日一题/LeetCode216.md) | |
+| [401. 二进制手表](https://leetcode-cn.com/problems/binary-watch/) | 简单 | [LeetCode401](./LeetCode每日一题/LeetCode401.md) | |
+| <span id = "Hash" style="font-size:150%;"><b>String</b></span> |  |  |  |
+| [179. 最大数](https://leetcode-cn.com/problems/largest-number/) | 中等 | [LeetCode179](./LeetCode每日一题/LeetCode179.md) |  |
 | <span id = "Hash" style="font-size:150%;"><b>Hash</b></span> |      |                                                  |      |
 | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 简单 | [LeetCode01](./LeetCode每日一题/LeetCode01.md)   |      |
 | [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 中等 | [LeetCode01](./LeetCode每日一题/LeetCode36.md)   |      |
@@ -118,7 +90,7 @@ LeetCode算法
 | <span id = "Hash" style="font-size:150%;"><b>双指针or滑动窗口</b></span> |      |                                                  |      |
 |  | | | |
 | <span id = "数组" style="font-size:150%;"><b>数组</b></span> | | | |
-|  | | | |
+| [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 中等 | [LeetCode215](./LeetCode每日一题/LeetCode215.md) | 一题多解 |
 |  | | | |
 |  | | | |
 | <span id = "Hash" style="font-size:150%;"><b>快慢指针</b></span> | | | |

@@ -373,8 +373,176 @@ hash索引和B+索引的区别
 锁粒度划分 
 
 - 行锁：锁粒度小，发生锁冲突概论低，可以实现的并发度高，锁开销大容易出现死锁情况
-- 页锁：
-- 表锁
+- 页锁：一个页锁包含多个行锁，并发程度一般，也会出现死锁的情况
+- 表锁: 粒度最大， 冲突概论较高，并发度低，对锁的使用开销小，加锁快
+
+锁占据一定的内存空间，会进行锁升级
+
+意向锁：对于小粒度的数据加锁后，默认对于更粗粒度的数据添加上了锁
+
+共享锁发生死锁的情况：两个客户端分别获取读锁，其中一个客户端2需要对数据进行修改而另外一个1不进行修改，这个时候会造成客户端2修改操作延迟，重新执行事务。
+
+
+
+**乐观锁**（Optimistic Locking）认为对同一数据的并发操作不会总发生，属于小概率事件，不用每次都对数据上锁，也就是不采用数据库自身的锁机制，而是通过程序来实现。在程序上，我们可以采用版本号机制或者时间戳机制实现。
+
+**悲观锁**（Pessimistic Locking）也是一种思想，对数据被其他事务的修改持保守态度，会通过数据库自身的锁机制来实现，从而保证数据操作的排它性。
+
+![image-20200512235058978](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200512235100.png)
+
+1. 乐观锁适合读操作多的场景，相对来说写的操作比较少。它的优点在于程序实现，不存在死锁问题，不过适用场景也会相对乐观，因为它阻止不了除了程序以外的数据库操作。
+2. 悲观锁适合写操作多的场景，因为写的操作具有排它性。采用悲观锁的方式，可以在数据库层面阻止其他事务对该数据的操作权限，防止读 - 写和写 - 写的冲突。
+
+
+
+# 31丨为什么大部分RDBMS都会支持MVCC？
+
+![image-20200513213608661](C:\Users\caopeng\AppData\Roaming\Typora\typora-user-images\image-20200513213608661.png)
+
+mvcc通过不采用锁的方式，通过乐观锁 来解决不可重复读和幻读问题。提升系统的系统
+
+
+
+![image-20200513213843026](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513213844.png)
+
+mvcc 解决的问题：
+
+1. 读写之间阻塞的问题，通过mvcc可以让读不阻塞写，写不阻塞读，这样就可以提升事务并发处理能力
+2. 降低了死锁的概率，采用乐观锁，读取数据不需要加锁，写数据的时候只用行锁
+3. 解决一致性的问题，快照读，查询数据库某个时间点的快照，只能看到这个时间点之前事务提交的结果，不能看到这个时间点之后事务提交的更新结果
+
+
+
+快照读和当前读
+
+**InnoDB 中的 MVCC 是如何实现的？**
+
+事务版本号，开启一个事务按照递增的顺序获取一个事务id，通过id可以判断事务的时间顺序
+
+行记录的隐藏列：
+
+![image-20200513215603855](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513215605.png)
+
+row_id ：隐藏的行ID用来生成默认的聚集索引
+
+trx_id: 操作这个事务的ID
+
+db_roll_ptr:回滚指针，指向这个记录的undo log信息
+
+![image-20200513215745533](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513215746.png)
+
+**read-view**解决一致性问题
+
+其中有几个属性是比较重要的
+
+1. trx_ids ：系统当前正在活跃事务Id集合
+2. low_limit-id :活跃事务中最大事务id
+3. up_limit_id：活跃事务的中最小事务id
+4. creator_trx_id:创建这个read_view的事务id
+
+![image-20200513220510966](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513220512.png)
+
+查询一条记录如何通过多版本并发控制技术找到
+
+1. 首先获取事务自己的版本号，也就是事务 ID；
+2. 获取 Read View；
+3. 查询得到的数据，然后与 Read View 中的事务版本号进行比较；
+4. 如果不符合 ReadView 规则，就需要从 Undo Log 中获取历史快照；
+5. 最后返回符合规则的数据。
+
+![image-20200513223756483](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513223758.png)
+
+![image-20200513223912867](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513223914.png)
+
+
+
+![image-20200513224444286](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513224445.png)
+
+![image-20200513224514246](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513224515.png)
+
+
+
+![image-20200513224528742](https://pic-go-youdaoyun-image.oss-cn-beijing.aliyuncs.com/pic-go-youdaoyun-image/20200513224530.png)
+
+
+
+# 32丨查询优化器是如何工作的？
+
+优化器分为两个部分：
+
+1. 逻辑优化
+2. 物理优化
+
+# 33丨如何使用性能分析工具定位SQL执行慢的原因？
+
+
+
+# 38丨初识Redis：Redis为什么会这么快？
+
+redis快的原因
+
+1. 底层使用 c语言编写
+2. 基于内存  减少网络磁盘io
+3. 单进程单线程  使用io多路复用避免上下文切换
+4. 使用key-value的数据结构
+
+todo 跳表不是很懂
+
+
+
+
+
+
+
+# 39丨如何使用Redis来实现多用户抢票问题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
