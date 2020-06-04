@@ -71,12 +71,17 @@ LeetCode算法
 | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) | 中等 | [LeetCode131](./LeetCode每日一题/LeetCode131.md) | |
 | [216. 组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/) | 中等 | [LeetCode216](./LeetCode每日一题/LeetCode216.md) | |
 | [401. 二进制手表](https://leetcode-cn.com/problems/binary-watch/) | 简单 | [LeetCode401](./LeetCode每日一题/LeetCode401.md) | |
+| [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii/) | 困难 | [LeetCode212](./LeetCode每日一题/LeetCode212.md) | |
 | <span id = "Hash" style="font-size:150%;"><b>String</b></span> |  |  |  |
 | [179. 最大数](https://leetcode-cn.com/problems/largest-number/) | 中等 | [LeetCode179](./LeetCode每日一题/LeetCode179.md) |  |
+| [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/) | 简单 | [LeetCode680](./LeetCode每日一题/LeetCode680.md) | |
+| [227. 基本计算器 II](https://leetcode-cn.com/problems/basic-calculator-ii/) | 中等 | [LeetCode227](./LeetCode每日一题/LeetCode227.md) | |
+| [14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix/) | 简单 | [LeetCode14](./LeetCode每日一题/LeetCode14.md) | |
 | <span id = "Hash" style="font-size:150%;"><b>Hash</b></span> |      |                                                  |      |
 | [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)     | 简单 | [LeetCode01](./LeetCode每日一题/LeetCode01.md)   |      |
-| [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 中等 | [LeetCode01](./LeetCode每日一题/LeetCode36.md)   |      |
-|                                                              |      |                                                  |      |
+| [36. 有效的数独](https://leetcode-cn.com/problems/valid-sudoku/) | 中等 | [LeetCode36](./LeetCode每日一题/LeetCode36.md)  |      |
+| [560. 和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/) | 中等 | [LeetCode560](./LeetCode每日一题/LeetCode560.md) |      |
+|  |  | | |
 | <span id = "Hash" style="font-size:150%;"><b>链表</b></span> |      |                                                  |      |
 | [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) | 简单 | [LeetCode206](./LeetCode每日一题/LeetCode206.md) |      |
 | [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/) | 中等 | [LeetCode2](./LeetCode每日一题/LeetCode02.md)    |      |
@@ -91,8 +96,13 @@ LeetCode算法
 |  | | | |
 | <span id = "数组" style="font-size:150%;"><b>数组</b></span> | | | |
 | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 中等 | [LeetCode215](./LeetCode每日一题/LeetCode215.md) | 一题多解 |
-|  | | | |
-|  | | | |
+| [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 中等 | [LeetCode152](./LeetCode每日一题/LeetCode152.md) | 在线解法 |
+| [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/) | 中等 | [LeetCode56](./LeetCode每日一题/LeetCode56.md) | 入门题目 |
+| [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 困难 | [LeetCode41](./LeetCode每日一题/LeetCode41.md) | 思路奇特 |
+| [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | 中等 | [LeetCode287](./LeetCode每日一题/LeetCode287.md) | 双指针和数组结合 |
+| [974. 和可被 K 整除的子数组](https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/) | 中等 | [LeetCode974](./LeetCode每日一题/LeetCode974.md) | 前缀和 |
+|  |  |  |  |
+|  |  |  |  |
 | <span id = "Hash" style="font-size:150%;"><b>快慢指针</b></span> | | | |
 | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 简单 | [LeetCode141](./LeetCode每日一题/LeetCode141.md) |  |
 | [202. 快乐数](https://leetcode-cn.com/problems/happy-number/) | 简单 | [LeetCode202](./LeetCode每日一题/LeetCode202.md) | 一题多解 |
@@ -123,8 +133,9 @@ LeetCode算法
 | [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) | 简单 | [LeetCode257](./LeetCode每日一题/LeetCode257.md)             |  |
 | [404. 左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/) | 简单 | [LeetCode404](./LeetCode每日一题/LeetCode404.md) |  |
 | [572. 另一个树的子树](https://leetcode-cn.com/problems/subtree-of-another-tree/) | 简单 | [LeetCode572](./LeetCode每日一题/LeetCode572.md) | 双递归 感觉不算简单 |
-| [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 中等 |  |  |
-| | | |  |
+| [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) | 中等 | [LeetCode236](./LeetCode每日一题/LeetCode236.md) |  |
+| [103. 二叉树的锯齿形层次遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/) | 中等 | [LeetCode103](./LeetCode每日一题/LeetCode103.md) | 栈或者双端链表 |
+|  |  |  | |
 | <span id = "贪心" style="font-size:150%;"><b>贪心</b></span> |      |                                                              |  |
 | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/) | 中等 | [LeetCode55](../LeetCode每日一题/LeetCode55.md) |  |
 | <span id = "dfs+bfs" style="font-size:150%;"><b>dfs+bfs</b></span> |      |                                                              |  |
@@ -146,10 +157,14 @@ LeetCode算法
 | [不邻接植花](https://leetcode-cn.com/problems/flower-planting-with-no-adjacent/) | 简单 | [LeetCode1042](./LeetCode每日一题/LeetCode1042.md) |  |
 | [课程表II](https://leetcode-cn.com/problems/course-schedule-ii/) | 中等 | [LeetCode210](./LeetCode每日一题/LeetCode210.md)   |  |
 | [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/) | 中等 | [LeetCode743](./LeetCode每日一题/LeetCode743.md) | 路径算法 |
-| <span id = "堆 排序 分治" style="font-size:150%;"><b>堆 排序 分治</b></span> |      |                                                              |  |
+| [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/) | 中等 |  | 并查集 |
+| <span id = "堆 排序 分治" style="font-size:150%;"><b>堆 排序 分治 栈</b></span> |      |                                                              |  |
 | [最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin/) | 中等 | [LeetCode973](./LeetCode每日一题/LeetCode973.md) | 堆 分治 |
+| [394. 字符串解码](https://leetcode-cn.com/problems/decode-string/) | 中等 | [LeetCode394](./LeetCode每日一题/LeetCode394.md) | 栈 |
+|  |  |  |  |
 | <span id = "设计类" style="font-size:150%;">设计类</span> |      |                                                              |  |
 | [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache/) |困难|[LeetCode460](./LeetCode每日一题/LeetCode460.md)|  |
+| [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/) |中等|[LeetCode146](./LeetCode每日一题/LeetCode146.md)| 复杂度要求较低 |
 
 
 
