@@ -28,36 +28,6 @@ LeetCode算法
 
   
 
-
-
-##### 双指针以及滑动窗口
-
-[LeetCode03](./LeetCode每日一题/LeetCode03.md)
-
-[LeetCode11](./LeetCode每日一题/LeetCode11.md)
-
-[LeetCode15](./LeetCode每日一题/LeetCode15.md)
-
-[LeetCode16](./LeetCode每日一题/LeetCode16.md)
-
-[LeetCode26](./LeetCode每日一题/LeetCode26.md)
-
-[LeetCode42](./LeetCode每日一题/LeetCode42.md) 接雨水经典问题 
-
-[LeetCode57](./LeetCode每日一题/LeetCode57.md)
-
-[LeetCode59](./LeetCode每日一题/LeetCode59.md)
-
-[LeetCode121](./LeetCode每日一题/LeetCode121.md)
-
-[LeetCode209](./LeetCode每日一题/LeetCode209.md)
-
-[LeetCode1248](./LeetCode每日一题/LeetCode1248.md) 滑动窗口问题 
-
-[LeetCode202](./LeetCode每日一题/LeetCode202.md)
-
-
-
 | 题目                                                         | 难度 | 题解                                             | 类型 |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------ | ---- |
 | <span id = "Hash" style="font-size:150%;"><b>回溯</b></span> |  |  |  |
@@ -93,7 +63,13 @@ LeetCode算法
 | [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/) | 中等 | [LeetCode29](./LeetCode每日一题/LeetCode29.md)   |      |
 |                                                              |      |                                                  |      |
 | <span id = "Hash" style="font-size:150%;"><b>双指针or滑动窗口</b></span> |      |                                                  |      |
-|  | | | |
+| [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/) | 简单 | [LeetCode167](./LeetCode每日一题/LeetCode167.md) | |
+| [633. 平方数之和](https://leetcode-cn.com/problems/sum-of-square-numbers/) | 简单 | [LeetCode633](./LeetCode每日一题/LeetCode633.md) | |
+| [345. 反转字符串中的元音字母](https://leetcode-cn.com/problems/reverse-vowels-of-a-string/) | 简单 | [LeetCode345](./LeetCode每日一题/LeetCode345.md) | |
+| [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/) | 简单 | [LeetCode680](./LeetCode每日一题/LeetCode680.md) | |
+| [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | 简单 | [LeetCode88](./LeetCode每日一题/LeetCode88.md) | |
+| [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 简单 | [LeetCode141](./LeetCode每日一题/LeetCode141.md) | |
+| [524. 通过删除字母匹配到字典里最长单词](https://leetcode-cn.com/problems/longest-word-in-dictionary-through-deleting/) | 中等 | [LeetCode524](./LeetCode每日一题/LeetCode524.md) | |
 | <span id = "数组" style="font-size:150%;"><b>数组</b></span> | | | |
 | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | 中等 | [LeetCode215](./LeetCode每日一题/LeetCode215.md) | 一题多解 |
 | [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/) | 中等 | [LeetCode152](./LeetCode每日一题/LeetCode152.md) | 在线解法 |
@@ -101,7 +77,7 @@ LeetCode算法
 | [41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/) | 困难 | [LeetCode41](./LeetCode每日一题/LeetCode41.md) | 思路奇特 |
 | [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | 中等 | [LeetCode287](./LeetCode每日一题/LeetCode287.md) | 双指针和数组结合 |
 | [974. 和可被 K 整除的子数组](https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/) | 中等 | [LeetCode974](./LeetCode每日一题/LeetCode974.md) | 前缀和 |
-|  |  |  |  |
+| [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/) | 困难 | [LeetCode128](./LeetCode每日一题/LeetCode128.md) | hash算法 时间换空间 |
 |  |  |  |  |
 | <span id = "Hash" style="font-size:150%;"><b>快慢指针</b></span> | | | |
 | [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/) | 简单 | [LeetCode141](./LeetCode每日一题/LeetCode141.md) |  |
