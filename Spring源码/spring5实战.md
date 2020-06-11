@@ -29,3 +29,8 @@ dev tools
 
 
 web库函数引入
+
+##　2.3表单校验
+
+java bean validationm jsr303  主要通过在领域对象上面添加 注解来实现 @valid 添加在 controller 参数中表明 对参数进行校验 错误保存在errors中通过errors.hasErrors()进行判断是否有异常发生
+
