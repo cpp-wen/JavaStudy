@@ -64,3 +64,47 @@
 
 ```
 
+
+
+```java
+class Solution {
+    private boolean[] visited;
+    private int[]colors;
+    private int[][] graph;
+    public boolean isBipartite(int[][] graph) {
+        //并查集或者是一个穷举问题
+        //染色问题 将每个节点进行染色 其实算是一个备忘录的问题
+        this.graph=graph;
+        int V=graph.length;
+        visited=new boolean[V];
+        colors=new int[V];
+        for(int v=0;v<V;v++){
+            if(!visited[v]){
+                if(!dfs(v,0)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    //染色 就是给一个节点上色 判断这个节点相邻节点是否有同色，这个时候就能判断出来是否为二分图
+    private boolean dfs(int v,int color){
+        visited[v]=true;
+        colors[v]=color;
+        for(int w:graph[v]){
+            if(!visited[w]){
+                if(!dfs(w,1-color)) return false;
+            }else if(colors[v]==colors[w]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+
+
+总结 ：
+
+二分图 使用染色的方法来解决dfs、 进行遍历计算
