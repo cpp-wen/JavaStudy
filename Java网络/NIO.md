@@ -745,6 +745,95 @@ public class UserInputHandler implements Runnable {
 
 
 
+
+
+## Linux部分select/poll 和epoll区别
+
+select/poll
+进程通过将一个或者多个fd传递给select或者poll系统调用，并阻塞在select上，这样select/poll可以帮我们侦测多个fd是否处于就绪状态。select/poll是顺序扫描fd是否处于就绪状态，并且大量的套接字传给操作系统让其检查状态是非常浪费资源的（首先是用户态到内核态的大量数据的复制），因此fd的数量树有限的，也就几千个并发连接。因此它的使用受到了限制。
+
+最大并发数量限制到1024大小，select系统监视大量连接的socket，一旦有就绪事件发生，select就会帮助我们侦测到这个事件，将这些套接字从用户空间传递到系统空间。因为涉及到大量套接字复制 且需要遍历 开销过大，所以需要将默认只能监视1024个连接。
+
+**存在的问题:**
+
+- 可协调fd数量和数值都不超过1024 无法实现高并发
+- 使用O(n)复杂度遍历fd数组查看fd的可读写性 效率低
+- 涉及大量kernel和用户态拷贝 消耗大
+- 每次完成监控需要再次重新传入并且分事件传入 操作冗余
+
+
+
+epoll
+为了克服 select/poll模型的问题，epoll就出现了。epoll使用**事件驱动机制**代替顺序扫描机制，因此效率更高一些，当fd的事件就绪时，立即回调rollback函数。
+select低效的原因是需要同时维护等待队列和阻塞队列，而epoll拆分了功能，想用epoll_ctl维护等待队列，epool_wait阻塞进程。因为大多数业务场景下连接的socket固定 所以等待队列不需要每次都进行修改。
+
+功能分离使得Epoll有优化的可能性。通过内核维护一个就绪列表，引用收到数据的socket来避免遍历。
+
+epoll的优势包括：
+
+- 对fd数量没有限制(当然这个在poll也被解决了)
+- 抛弃了bitmap数组实现了新的结构来存储多种事件类型
+- 无需重复拷贝fd 随用随加 随弃随删
+- 采用事件驱动避免轮询查看可读写事件
+
+综上可知，epoll出现之后大大提高了并发量对于C10K问题轻松应对，即使后续出现了真正的异步IO，也并没有(暂时没有)撼动epoll的江湖地位，主要是因为epoll可以解决数万数十万的并发量，已经可以解决现在大部分的场景了，异步IO固然优异，但是编程难度比epoll更大，权衡之下epoll仍然富有生命力。
+
+- **epoll的api定义**：
+
+  ```
+  
+  //用户数据载体
+  typedef union epoll_data {
+     void    *ptr;
+     int      fd;
+     uint32_t u32;
+     uint64_t u64;
+  } epoll_data_t;
+  //fd装载入内核的载体
+   struct epoll_event {
+       uint32_t     events;    /* Epoll events */
+       epoll_data_t data;      /* User data variable */
+   };
+   //三板斧api
+  int epoll_create(int size); 
+  int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);  
+  int epoll_wait(int epfd, struct epoll_event *events,
+                   int maxevents, int timeout);
+  ```
+
+  - ***epoll_create\***是在内核区创建一个epoll相关的一些列结构，并且将一个句柄fd返回给用户态，后续的操作都是基于此fd的，参数size是告诉内核这个结构的元素的大小，类似于stl的vector动态数组，如果size不合适会涉及复制扩容，不过貌似4.1.2内核之后size已经没有太大用途了；
+  - ***epoll_ctl\***是将fd添加/删除于epoll_create返回的epfd中，其中epoll_event是用户态和内核态交互的结构，定义了用户态关心的事件类型和触发时数据的载体epoll_data；
+  - ***epoll_wait\***是阻塞等待内核返回的可读写事件，epfd还是epoll_create的返回值，events是个结构体数组指针存储epoll_event，也就是将内核返回的待处理epoll_event结构都存储下来，maxevents告诉内核本次返回的最大fd数量，这个和events指向的数组是相关的；
+  - epoll_event是用户态需监控fd的代言人，后续用户程序对fd的操作都是基于此结构的；
+
+ 
+
+- **通俗描述：**
+
+可能上面的描述有些抽象，不过其实很好理解，举个现实中的例子：
+
+- ***epoll_create场景***：
+
+  大学开学第一周，你作为班长需要帮全班同学领取相关物品，你在学生处告诉工作人员，我是xx学院xx专业xx班的班长，这时工作人员确定你的身份并且给了你凭证，后面办的事情都需要用到(也就是调用epoll_create向内核申请了epfd结构，内核返回了epfd句柄给你使用)；
+
+- ***epoll_ctl场景***：
+
+  你拿着凭证在办事大厅开始办事，分拣办公室工作人员说班长你把所有需要办理事情的同学的学生册和需要办理的事情都记录下来吧，于是班长开始在每个学生手册单独写对应需要办的事情：
+
+  李明需要开实验室权限、孙大熊需要办游泳卡......就这样班长一股脑写完并交给了工作人员(也就是告诉内核哪些fd需要做哪些操作)；
+
+- ***epoll_wait场景\***：
+
+  你拿着凭证在领取办公室门前等着，这时候广播喊xx班长你们班孙大熊的游泳卡办好了速来领取、李明实验室权限卡办好了速来取....还有同学的事情没办好，所以班长只能继续(也就是调用epoll_wait等待内核反馈的可读写事件发生并处理)；
+
+底层实现使用红黑数和双向链表 这边吧不介绍
+
+微信原文 连接  深入理解IO复用之epoll
+
+原创 后端技术指南针 [后端技术指南针](javascript:void(0);) *2019-10-21*
+
+
+
 ## 反应器Reactor
 
 ### Reactor模式结构
