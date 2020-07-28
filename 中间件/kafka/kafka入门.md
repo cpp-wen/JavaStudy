@@ -56,9 +56,104 @@ kafka与其他主流大数据流式计算框架相比更容易实现端到端的
 
 
 
+ 
+
+## 极客时间第三章介绍
+
+线上集群部署方案
+
+部署集群首选 linux 三个原因 io模型 数据网络传输效率 社区支持度  epoll 和poll对比 以及零拷贝技术
+
+RAID 实现负载均衡以及磁盘存储空间
+
+kafka 磁盘需要考虑因素
+
+1. 新增消息数
+2. 消息留存时间
+3. 平均消息大小
+4. 备份数
+5. 是否启动压缩
 
 
 
+集群参数配置
+
+Broker参数设置：  配置存储信息
+
+1. log.dirs 使用的若干个文件目录路径 使用csv进行分割
+2. log.dir
+
+实现故障转移
+
+
+
+broker连接相关：
+
+listeners:监听器 告诉外部服务通过什么协议访问指定主机名和端口开放的kafka服务
+
+advertised.listeners:  对外宣称的公布的 监听器
+
+监听器三元组格式<协议名称,主机名,端口号>。
+
+主机名
+统一的建议:最好全部使用主机名,即 Broker 端和 Client端应用配置中全部填写主机名。 Broker源代码中也使用主机名
+
+
+
+zk参数设置： 作用kafka集群的所有元数据信息，比如哪些broker在运行，创建哪些topic 分区，leader副本信息
+
+多套kafka集群使用同一套zk集群进行管理
+
+zookeeper.connect:csv格式
+
+这样指定:zk1:2181,zk2:2181,zk3:2181/kafka1和
+zk1:2181,zk2:2181,zk3:2181/kafka2。
+
+
+
+topic参数:
+
+auto.create.topics.enable:是否允许自动创建Topic。 简直设置为false
+unclean.leader.election.enable:是否允许Unclean Leader 选举。 建议显示设置为false， unclear指的是是否在多文件副本都挂的情况下给予存储副本信息较少的节点成为leader的机会
+auto.leader.rebalance.enable:是否允许定期进行 Leader 选举。 换leader成本很高建议设置为false
+
+
+
+数据留存方面：
+
+log.retention.{hour|minutes|ms}:这是个“三兄弟”,都是控制一条消息数据被保存多长时间。从优先级上来说 ms 设置最高、minutes 次之、hour 最低。
+log.retention.bytes:这是指定 Broker 为消息保存的总磁盘容量大小。
+message.max.bytes:控制 Broker 能够接收的最大消息大小。
+
+
+
+topic参数 会覆盖全局参数的值
+
+retention.ms:规定了该 Topic 消息被保存的时长。默认是 7 天,即该 Topic 只保存最近 7 天的消息。一旦设置了这个值,它会覆盖掉 Broker 端的全局参数值。
+retention.bytes:规定了要为该 Topic 预留多大的磁盘空间。和全局参数作用相似,这个值通常在多租户的Kafka 集群中会有用武之地。当前默认值是 -1,表示可以无限使用磁盘空间。
+
+max.message.bytes设置处理消息大小
+
+使用kafka-config脚本来调整topic参数
+
+
+
+jvm参数设置
+
+业界希望设置大小为6g
+
+jdk8 使用默认的c1垃圾回收就可以了
+
+在启动kafka之前将这些环境变量的大小设置完毕
+
+
+
+操作系统关注参数
+
+1. 文件描述符限制 ulimit -n 设置大没事 ，否认会出现 Too many open files
+2. 系统文件类型 xfs
+3. swappiness  建议设置一个接近0的数字
+4. 提交时间 flush落盘时间
 
 
 
