@@ -26,6 +26,29 @@ Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits  客户端�
 
 [连接](https://cloud.tencent.com/developer/article/1032466)
 
+使用scheduledThreadpool来实现定时任务 这块需要了解一下
+
+```
+public void pushMsg(){
+        //模拟异步发送推送消息
+        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
+        scheduledThreadPool.scheduleWithFixedDelay(() -> {
+            TextWebSocketFrame tws = new TextWebSocketFrame("服务器主动推送消息。当前服务器时间："+System.currentTimeMillis());
+            // 群发
+            ChannelSupervise.send2All(tws);
+        }, 0,1, TimeUnit.SECONDS);
+
+    }
+    
+    public static void main(String[] args) {
+        MyWebSocketServer server = new MyWebSocketServer(8080);// 8081为启动端口
+        
+        server.pushMsg();
+        
+        server.start();
+    }
+```
+
 
 
 
